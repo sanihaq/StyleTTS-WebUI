@@ -83,15 +83,43 @@ models\pretrain_base_1\config.yml
 ```
 10. Install eSpeak-NG onto your computer.  Head over to https://github.com/espeak-ng/espeak-ng/releases and select the ```espeak-ng-X64.msi``` the assets dropdown.  Download, run, and follow the prompts to set it up on your device.  As of this write-up, it'll be at the bottom of 1.51 on the github releases page
 > You can remove the program by going to "Add or remove programs" on your computer, then searching for espeak.
+
+on macos
+```
+brew install espeak-ng
+```
+set env var-
+```
+export PHONEMIZER_ESPEAK_LIBRARY=/opt/homebrew/Cellar/espeak-ng/1.51/lib/libespeak-ng.dylib
+```
 11. Download punkt by running the below python script:
 ```
 python .\modules\StyleTTS2\styletts2\download_punkt.py
 ```
-12.. Run the StyleTTS2 Webui
+12. python-tk (macos)
+```
+brew install tcl-tk
+```
+Add this path to your environment variables:
+```
+export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/tcl-tk/lib"
+export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
+export PKG_CONFIG_PATH="/usr/local/opt/tcl-tk/lib/pkgconfig"
+```
+Reinstall Python with tkinter support
+```
+CFLAGS="-I$(brew --prefix tcl-tk)/include" \
+LDFLAGS="-L$(brew --prefix tcl-tk)/lib" \
+pyenv install 3.x.x  # Replace with your Python version
+
+```
+
+13. Run the StyleTTS2 Webui
 ```
 python webui.py
 ```
-13. (Optional) Make a .bat file to automatically run the webui.py each time without having to activate venv each time. How to: https://www.windowscentral.com/how-create-and-run-batch-file-windows-10
+14. (Optional) Make a .bat file to automatically run the webui.py each time without having to activate venv each time. How to: https://www.windowscentral.com/how-create-and-run-batch-file-windows-10
 ```
 call venv\Scripts\activate
 python webui.py

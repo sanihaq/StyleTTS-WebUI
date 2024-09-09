@@ -296,7 +296,7 @@ def load_settings():
             "beta": 0.7,
             "diffusion_steps": 30,
             "embedding_scale": 1.0,
-            "voice_model" : "models\pretrain_base_1\epochs_2nd_00020.pth"
+            "voice_model" : "models/pretrain_base_1/epochs_2nd_00020.pth"
         }
         return settings_list
 
